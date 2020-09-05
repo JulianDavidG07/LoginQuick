@@ -8,6 +8,7 @@
   height: 27em;
 }
 
+
 .quick-image{
   background-image: url(./quick.gif);
   filter: brightness(0.80);

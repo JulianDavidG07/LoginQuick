@@ -20,13 +20,17 @@ const routes = [
     }
   },
   {
-    path: '/administrador',
-    name: 'Administrador',
-    component: () => import(/* webpackChunkName: "administrador" */ '../views/Administrador.vue'),
-    meta: {
-      requireAuth: true
-    }
-  }
+    path: '/subadmin1',
+    name: 'SubAdmin1',
+    component: () => import(/* webpackChunkName: "subadmin1" */ '../views/SubAdmin1.vue'),
+  },
+  {
+    path: '/subadmin2',
+    name: 'SubAdmin2',
+    component: () => import(/* webpackChunkName: "subadmin2" */ '../views/SubAdmin2.vue'),
+  },
+
+
 ]
 
 const router = new VueRouter({
