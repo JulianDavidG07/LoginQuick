@@ -4,8 +4,9 @@
 https://juliandavidg07.github.io/LoginQuick/
 
 ## User Admin (Dates):
-E-mail: julian@gmail.com
-Password: 123456
+* E-mail: julian@gmail.com
+* Password: 123456
+
 
 
 ### Customize configuration
