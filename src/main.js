@@ -24,7 +24,7 @@ let firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-Vue.prototype.$eventHub = new Vue();
+export const EventBus = new Vue()
 
 new Vue({
   router,

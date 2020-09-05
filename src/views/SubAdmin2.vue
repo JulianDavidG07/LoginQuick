@@ -18,10 +18,10 @@
       >En este apartado se da a conocer la suma total correspondiente a la respectiva categoría (Oro, Plata, Bronce).</p>
       <strong class="m-auto">Para mas información puedes dar click sobre la medalla.</strong>
     </div>
-    {{arrayFilter}}
+    {{sumar}}
     <div class="flex justify-around mt-5 text-white px-6">
       <!-- medalla oro -->
-      <div class="flex">
+      <div class="flex" @click="oro !== oro">
         <div class="bg-yellow-400 w-10 h-10"></div>
         <img
           class="border-4 border-yellow-400"
@@ -30,6 +30,8 @@
           height="200px"
         />
       </div>
+
+      <div v-if="oro === true">Oro Modal</div>
 
       <!-- medalla plata -->
       <div class="flex">
@@ -58,25 +60,40 @@
 
 <script>
 import SignOut from "../components/SignOut";
+import axios from "axios";
 
 export default {
   name: 'SubAdmin"',
 
   data() {
     return {
-      arrayFilter: [],
+      message: [],
+      oro: false,
     };
   },
 
+  // filter: {
+  //   sumar() {
+  //     return arrays.reduce((a, b) => {
+  //       return a + b;
+  //     });
+  //   },
+  // },
   components: {
     SignOut,
   },
 
-  created() {
-    this.$eventHub.$on(this.dataAdmin, () => {
-      console.log(this.dataAdmin);
-      // this.handleMessageMethod();
-    });
+  async mounted() {
+    try {
+      this.message = await axios
+        .get(
+          "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
+        )
+        .then((res) => res.data);
+      this.error = null;
+    } catch (error) {
+      this.error = error;
+    }
   },
 };
 </script>

@@ -60,6 +60,7 @@
 <script>
 import SignOut from "../components/SignOut";
 import axios from "axios";
+
 export default {
   name: "Administrador",
   data() {
@@ -71,12 +72,6 @@ export default {
 
   components: {
     SignOut,
-  },
-
-  methods: {
-    notifyHeader() {
-      this.$eventHub.$emit(this.dataAdmin);
-    },
   },
 
   async mounted() {
