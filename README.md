@@ -7,21 +7,12 @@ https://juliandavidg07.github.io/LoginQuick/
 * E-mail: julian@gmail.com
 * Password: 123456
 
-
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-## Authors 
-     ✒️
-* [Julian David Gaitan](https://twitter.com/JulianDavidG07)
-
-
 ## Description 
        📖
       
-This is a login with user authentication
+This is a login with user authentication:
+* Form validation
+* Route protection
 
 
 ## Installation 
@@ -31,17 +22,26 @@ This is a login with user authentication
 ```
 git clone https://github.com/JulianDavidG07/LoginQuick.git
 ```
+
 ### then:
 ```
 npm install
 ```
+
 
 ### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Author
+     ✒️
+* [Julian David Gaitan](https://twitter.com/JulianDavidG07)
 
 
 ## Built With
