@@ -23,11 +23,17 @@ const routes = [
     path: '/subadmin1',
     name: 'SubAdmin1',
     component: () => import(/* webpackChunkName: "subadmin1" */ '../views/SubAdmin1.vue'),
+    meta: {
+      requireAuth: true /*metadata indicada para proteger rutas*/
+    }
   },
   {
     path: '/subadmin2',
     name: 'SubAdmin2',
     component: () => import(/* webpackChunkName: "subadmin2" */ '../views/SubAdmin2.vue'),
+    meta: {
+      requireAuth: true /*metadata indicada para proteger rutas*/
+    }
   },
 
 
@@ -47,7 +53,7 @@ router.beforeEach((to, from, next) => {
       next();
     } else {
       next({
-        name: 'login'
+        name: 'Login'
       })
     }
   } else {

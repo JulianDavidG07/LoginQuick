@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div class="flex justify-end m-8">
-      <SignOut />
+    <div class="flex justify-between">
+      <img class="ml-3 mt-4" src="../assets/super.png" width="100px" />
+      <div class="self-center m-5">
+        <SignOut />
+      </div>
     </div>
     <div class="flex justify-center mb-5 border-b-4 text-white">
       <router-link class="px-2 pb-2 hover:bg-white hover:text-black" to="/subadmin1">Tabla</router-link>
@@ -68,6 +71,12 @@ export default {
 
   components: {
     SignOut,
+  },
+
+  methods: {
+    notifyHeader() {
+      this.$eventHub.$emit(this.dataAdmin);
+    },
   },
 
   async mounted() {
