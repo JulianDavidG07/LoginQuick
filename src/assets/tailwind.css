@@ -1,0 +1,18 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.altura{
+  height: 27em;
+}
+
+.quick-image{
+  background-image: url(./quick.gif);
+  filter: brightness(0.80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: brightness(0.80);
+}

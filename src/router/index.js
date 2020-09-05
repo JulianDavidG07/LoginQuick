@@ -1,22 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import firebase from 'firebase'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Login',
+
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/coordinador',
+    name: 'Coordinador',
+    component: () => import(/* webpackChunkName: "coordinador" */ '../views/Coordinador.vue'),
+    meta: {
+      requireAuth: true /*metadata indicada para proteger rutas*/
+    }
+  },
+  {
+    path: '/administrador',
+    name: 'Administrador',
+    component: () => import(/* webpackChunkName: "administrador" */ '../views/Administrador.vue'),
+    meta: {
+      requireAuth: true
+    }
   }
 ]
 
@@ -24,6 +33,22 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
+
+// esta funcion se ejecuta antes del obj router para hacer validaciones
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(ruta => ruta.meta.requireAuth)) {
+    const user = firebase.auth().currentUser; //usuario actual SI EXISTE
+    if (user) {
+      next();
+    } else {
+      next({
+        name: 'login'
+      })
+    }
+  } else {
+    next()
+  }
+});
 
 export default router
