@@ -59,7 +59,7 @@
 
 <script>
 import SignOut from "../components/SignOut";
-import {mapState, mapMutations, mapActions} from 'vuex'
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "Administrador",
@@ -69,18 +69,18 @@ export default {
   },
 
   computed: {
-    ...mapState(['dataArray']) 
+    ...mapState(["dataArray"]),
   },
 
   methods: {
-  ...mapMutations(["pushData", "filterData"]),
-  ...mapActions(["getData"]),
+    ...mapMutations(["pushData"]),
+    ...mapActions(["getData"]),
   },
 
   mounted() {
     this.getData();
-  }
-}
+  },
+};
 </script>
 
 <style>

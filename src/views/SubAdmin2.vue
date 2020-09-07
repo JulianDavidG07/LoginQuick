@@ -18,32 +18,56 @@
       >En este apartado se da a conocer la suma total correspondiente a la respectiva categoría (Oro, Plata, Bronce).</p>
       <strong class="m-auto">Para mas información puedes dar click sobre la medalla.</strong>
     </div>
-    {{sumar}}
+    <!-- <ul>
+      <li v-for="(x, key) in dataArray" :key="key">{{ x.gold }}</li>
+    </ul>-->
     <div class="flex justify-around mt-5 text-white px-6">
       <!-- medalla oro -->
-      <CardMedalla image_src="oro" />
+      <CardMedalla image_src="oro" color_card="yellow" :totalMedallas="dataArraySumGold" />
 
       <!-- medalla plata -->
-      <CardMedalla image_src="plata" />
+      <CardMedalla image_src="plata" color_card="gray" :totalMedallas="dataArraySumSilver" />
 
       <!-- medalla bronce -->
-      <CardMedalla image_src="bronce" />
+      <CardMedalla image_src="bronce" color_card="orange" :totalMedallas="dataArraySumBronze" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from "vuex";
 import SignOut from "../components/SignOut";
 import CardMedalla from "../components/CardMedalla";
 
 export default {
   name: 'SubAdmin"',
 
-  data() {
-    return {
-      message: [],
-      oro: false,
-    };
+  computed: {
+    ...mapState(["dataArray"]),
+    dataArraySumGold() {
+      let totalMedallasArray = this.dataArray.map((x) => x.gold);
+      let reducer = (a, b) => a + b;
+      return totalMedallasArray.reduce(reducer);
+    },
+    dataArraySumSilver() {
+      let totalMedallasArray = this.dataArray.map((x) => x.silver);
+      let reducer = (a, b) => a + b;
+      return totalMedallasArray.reduce(reducer);
+    },
+    dataArraySumBronze() {
+      let totalMedallasArray = this.dataArray.map((x) => x.bronze);
+      let reducer = (a, b) => a + b;
+      return totalMedallasArray.reduce(reducer);
+    },
+  },
+
+  methods: {
+    ...mapMutations(["pushData"]),
+    ...mapActions(["getData"]),
+  },
+
+  mounted() {
+    this.getData();
   },
 
   components: {
