@@ -21,46 +21,20 @@
     {{sumar}}
     <div class="flex justify-around mt-5 text-white px-6">
       <!-- medalla oro -->
-      <div class="flex" @click="oro !== oro">
-        <div class="bg-yellow-400 w-10 h-10"></div>
-        <img
-          class="border-4 border-yellow-400"
-          src="../assets/oro.png"
-          width="200px"
-          height="200px"
-        />
-      </div>
-
-      <div v-if="oro === true">Oro Modal</div>
+      <CardMedalla image_src="oro" />
 
       <!-- medalla plata -->
-      <div class="flex">
-        <div class="bg-gray-400 w-10 h-10"></div>
-        <img
-          class="border-4 border-gray-400"
-          src="../assets/plata.png"
-          width="200px"
-          height="200px"
-        />
-      </div>
+      <CardMedalla image_src="plata" />
 
       <!-- medalla bronce -->
-      <div class="flex">
-        <div class="bg-orange-400 w-10 h-10"></div>
-        <img
-          class="border-4 border-orange-400"
-          src="../assets/bronce.png"
-          width="200px"
-          height="200px"
-        />
-      </div>
+      <CardMedalla image_src="bronce" />
     </div>
   </div>
 </template>
 
 <script>
 import SignOut from "../components/SignOut";
-import axios from "axios";
+import CardMedalla from "../components/CardMedalla";
 
 export default {
   name: 'SubAdmin"',
@@ -72,28 +46,9 @@ export default {
     };
   },
 
-  // filter: {
-  //   sumar() {
-  //     return arrays.reduce((a, b) => {
-  //       return a + b;
-  //     });
-  //   },
-  // },
   components: {
     SignOut,
-  },
-
-  async mounted() {
-    try {
-      this.message = await axios
-        .get(
-          "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
-        )
-        .then((res) => res.data);
-      this.error = null;
-    } catch (error) {
-      this.error = error;
-    }
+    CardMedalla,
   },
 };
 </script>
