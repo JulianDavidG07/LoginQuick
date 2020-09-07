@@ -4,10 +4,10 @@
     <div v-if="errorUser !== ''" class="bg-red-600 p-3 text-red-200">{{errorUser}}</div>
 
     <div class="flex h-screen justify-center content-center bg-black quick-image">
-      <img class="absolute mt-3" src="../assets/super.png" alt width="200px" />
+      <img class="absolute mt-16 md:mt-3" src="../assets/super.png" alt width="200px" />
       <form
         @submit.prevent="login"
-        class="bg-gray-700 border-2 border-yellow-400 bg-opacity-75 shadow-md rounded px-8 w-1/4 my-auto altura"
+        class="bg-gray-700 border-2 border-yellow-400 bg-opacity-75 shadow-md rounded px-8 w-64 md:w-1/4 my-auto altura"
       >
         <div class="mb-8 mt-40">
           <label

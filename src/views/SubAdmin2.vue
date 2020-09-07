@@ -21,15 +21,32 @@
     <!-- <ul>
       <li v-for="(x, key) in dataArray" :key="key">{{ x.gold }}</li>
     </ul>-->
-    <div class="flex justify-around mt-5 text-white px-6">
+
+    <div class="flex flex-wrap lg:justify-around mt-5 text-white px-6">
       <!-- medalla oro -->
-      <CardMedalla image_src="oro" color_card="yellow" :totalMedallas="dataArraySumGold" />
+      <CardMedalla
+        image_src="oro"
+        color_card="yellow"
+        :totalMedallas="dataArraySumGold"
+        nombreMedal="Oro"
+      />
+      <ModalCard v-if="oroModal === true" />
 
       <!-- medalla plata -->
-      <CardMedalla image_src="plata" color_card="gray" :totalMedallas="dataArraySumSilver" />
+      <CardMedalla
+        image_src="plata"
+        color_card="gray"
+        :totalMedallas="dataArraySumSilver"
+        nombreMedal="Plata"
+      />
 
       <!-- medalla bronce -->
-      <CardMedalla image_src="bronce" color_card="orange" :totalMedallas="dataArraySumBronze" />
+      <CardMedalla
+        image_src="bronce"
+        color_card="orange"
+        :totalMedallas="dataArraySumBronze"
+        nombreMedal="Bronce"
+      />
     </div>
   </div>
 </template>
@@ -38,9 +55,24 @@
 import { mapState, mapMutations, mapActions } from "vuex";
 import SignOut from "../components/SignOut";
 import CardMedalla from "../components/CardMedalla";
+import ModalCard from "../components/ModalCard";
 
 export default {
   name: 'SubAdmin"',
+
+  components: {
+    SignOut,
+    CardMedalla,
+    ModalCard,
+  },
+
+  data() {
+    return {
+      oroModal: false,
+      plataModal: false,
+      bronceModal: false,
+    };
+  },
 
   computed: {
     ...mapState(["dataArray"]),
@@ -64,15 +96,13 @@ export default {
   methods: {
     ...mapMutations(["pushData"]),
     ...mapActions(["getData"]),
+    ButtonState() {
+      alert("hola");
+    },
   },
 
   mounted() {
     this.getData();
-  },
-
-  components: {
-    SignOut,
-    CardMedalla,
   },
 };
 </script>
