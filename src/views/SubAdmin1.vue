@@ -28,7 +28,7 @@
           </tr>
         </thead>
         <tbody class="ml-2">
-          <tr v-for="(x, key) of dataAdmin" :key="key">
+          <tr v-for="(x, key) of dataArray" :key="key">
             <td class="border px-4 py-2">{{ x.athlete}}</td>
             <td class="border px-4 py-2">{{ x.age }}</td>
             <td class="border px-4 py-2">{{ x.country }}</td>
@@ -59,34 +59,28 @@
 
 <script>
 import SignOut from "../components/SignOut";
-import axios from "axios";
+import {mapState, mapMutations, mapActions} from 'vuex'
 
 export default {
   name: "Administrador",
-  data() {
-    return {
-      dataAdmin: [],
-      error: "",
-    };
-  },
 
   components: {
     SignOut,
   },
 
-  async mounted() {
-    try {
-      this.dataAdmin = await axios
-        .get(
-          "https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinners.json"
-        )
-        .then((res) => res.data);
-      this.error = null;
-    } catch (error) {
-      this.error = error;
-    }
+  computed: {
+    ...mapState(['dataArray']) 
   },
-};
+
+  methods: {
+  ...mapMutations(["pushData", "filterData"]),
+  ...mapActions(["getData"]),
+  },
+
+  mounted() {
+    this.getData();
+  }
+}
 </script>
 
 <style>
