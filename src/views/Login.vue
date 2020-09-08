@@ -2,6 +2,17 @@
   <div>
     <!-- mensaje error de autenticacion -->
     <div v-if="errorUser !== ''" class="bg-red-600 p-3 text-red-200">{{errorUser}}</div>
+    <div class="bg-yellow-400 p-3 md:mx-64">
+      <strong>Quieres Iniciar Sesión? aqui un correo y contraseña de ejemplo:</strong>
+      <div class="bg-yellow-500 mb-1 p-1">
+        <strong class="block">E-mail:</strong>
+        <div>ejemplo@gmail.com</div>
+      </div>
+      <div class="bg-yellow-500 p-1">
+        <strong class="block">Contraseña:</strong>
+        <div>123456</div>
+      </div>
+    </div>
 
     <div class="flex h-screen justify-center content-center bg-black quick-image">
       <img class="absolute mt-3 md:mt-3" src="../assets/super.png" alt width="200px" />
@@ -40,17 +51,6 @@
           >Sign In</button>
         </div>
       </form>
-    </div>
-    <div class="bg-yellow-400 p-3">
-      <strong>Si quieres Iniciar Sesion aqui un correo y contraseña de ejemplo:</strong>
-      <div class="bg-yellow-500 mb-1 p-1">
-        <strong class="block">E-mail:</strong>
-        <div>julian@gmail.com</div>
-      </div>
-      <div class="bg-yellow-500 p-1">
-        <strong class="block">Contraseña:</strong>
-        <div>123456</div>
-      </div>
     </div>
   </div>
 </template>
