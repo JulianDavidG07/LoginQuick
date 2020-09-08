@@ -4,7 +4,7 @@
     <div v-if="errorUser !== ''" class="bg-red-600 p-3 text-red-200">{{errorUser}}</div>
 
     <div class="flex h-screen justify-center content-center bg-black quick-image">
-      <img class="absolute mt-16 md:mt-3" src="../assets/super.png" alt width="200px" />
+      <img class="absolute mt-3 md:mt-3" src="../assets/super.png" alt width="200px" />
       <form
         @submit.prevent="login"
         class="bg-gray-700 border-2 border-yellow-400 bg-opacity-75 shadow-md rounded px-8 w-64 md:w-1/4 my-auto altura"
@@ -40,6 +40,17 @@
           >Sign In</button>
         </div>
       </form>
+    </div>
+    <div class="bg-yellow-400 p-3">
+      <strong>Si quieres Iniciar Sesion aqui un correo y contraseña de ejemplo:</strong>
+      <div class="bg-yellow-500 mb-1 p-1">
+        <strong class="block">E-mail:</strong>
+        <div>julian@gmail.com</div>
+      </div>
+      <div class="bg-yellow-500 p-1">
+        <strong class="block">Contraseña:</strong>
+        <div>123456</div>
+      </div>
     </div>
   </div>
 </template>

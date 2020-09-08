@@ -52,7 +52,7 @@
       </table>
 
       <!-- Mensaje de error por si falla el GET -->
-      <div v-if="error !== ''" class="bg-red-600 text-white p-5">{{error}}</div>
+      <div v-if="error !== ''" class="bg-yellow-500 text-black p-5">Cargando....</div>
     </div>
   </div>
 </template>
