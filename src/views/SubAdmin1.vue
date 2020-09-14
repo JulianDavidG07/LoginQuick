@@ -11,7 +11,7 @@
       <router-link class="px-2 pb-2 hover:bg-white hover:text-black" to="/subadmin2">Categorias</router-link>
     </div>
 
-    <div>
+    <div class="overflow-x-auto mx-2">
       <table class="table-auto text-white">
         <thead>
           <tr>
@@ -27,7 +27,7 @@
             <th class="px-4 py-2">Total</th>
           </tr>
         </thead>
-        <tbody class="ml-2">
+        <tbody>
           <tr v-for="(x, key) of dataArray" :key="key">
             <td class="border px-4 py-2">{{ x.athlete}}</td>
             <td class="border px-4 py-2">{{ x.age }}</td>
