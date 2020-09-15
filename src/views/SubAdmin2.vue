@@ -58,7 +58,6 @@ export default {
   components: {
     SignOut,
     CardMedalla,
-    ModalCard,
   },
 
   computed: {
