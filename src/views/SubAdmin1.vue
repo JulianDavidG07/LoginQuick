@@ -1,15 +1,10 @@
 <template>
   <div>
-    <div class="flex justify-between">
-      <img class="ml-3 mt-4 self-center" src="../assets/super.png" width="50px" />
-      <div class="self-center">
-        <SignOut />
-      </div>
-    </div>
-    <div class="flex justify-center mb-5 border-b-4 text-white">
-      <router-link class="px-2 pb-2 hover:bg-white hover:text-black" to="/subadmin1">Tabla</router-link>
-      <router-link class="px-2 pb-2 hover:bg-white hover:text-black" to="/subadmin2">Categorias</router-link>
-    </div>
+    <!-- head page view -->
+    <HeadView />
+
+    <!-- rouer navigation between pages -->
+    <RouterAdmin />
 
     <div class="overflow-x-auto mx-2 mt-4 md:flex md:justify-center">
       <table class="table-auto text-white">
@@ -60,16 +55,18 @@
 </template>
 
 <script>
-import SignOut from "../components/SignOut";
 import LoaderSVG from "../components/LoaderSVG";
+import HeadView from "../components/HeadView";
+import RouterAdmin from "../components/RouterAdmin";
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "Administrador",
 
   components: {
-    SignOut,
     LoaderSVG,
+    HeadView,
+    RouterAdmin,
   },
 
   computed: {
