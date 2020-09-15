@@ -51,11 +51,17 @@
         </tbody>
       </table>
     </div>
+
+    <!-- this is a loader while waiting for the api response -->
+    <div v-show="loader">
+      <LoaderSVG />
+    </div>
   </div>
 </template>
 
 <script>
 import SignOut from "../components/SignOut";
+import LoaderSVG from "../components/LoaderSVG";
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
@@ -63,6 +69,7 @@ export default {
 
   components: {
     SignOut,
+    LoaderSVG,
   },
 
   computed: {
@@ -74,8 +81,13 @@ export default {
     ...mapActions(["getData"]),
   },
 
+  created() {
+    this.loader = true;
+  },
+
   mounted() {
     this.getData();
+    this.loader = false;
   },
 };
 </script>
