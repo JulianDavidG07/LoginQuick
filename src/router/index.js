@@ -20,17 +20,17 @@ const routes = [
     }
   },
   {
-    path: '/subadmin1',
-    name: 'SubAdmin1',
-    component: () => import(/* webpackChunkName: "subadmin1" */ '../views/SubAdmin1.vue'),
+    path: '/subadminone',
+    name: 'SubAdminOne',
+    component: () => import(/* webpackChunkName: "subadmin1" */ '../views/SubAdminOne.vue'),
     meta: {
       requireAuth: true /*metadata indicada para proteger rutas*/
     }
   },
   {
-    path: '/subadmin2',
-    name: 'SubAdmin2',
-    component: () => import(/* webpackChunkName: "subadmin2" */ '../views/SubAdmin2.vue'),
+    path: '/subadmintwo',
+    name: 'SubAdminTwo',
+    component: () => import(/* webpackChunkName: "subadmin2" */ '../views/SubAdminTwo.vue'),
     meta: {
       requireAuth: true /*metadata indicada para proteger rutas*/
     }

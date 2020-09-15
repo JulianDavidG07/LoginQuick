@@ -74,7 +74,7 @@ export default {
           .auth()
           .signInWithEmailAndPassword(this.userMail, this.userPassword)
           .then(() => {
-            this.$router.push({ name: "SubAdmin1" });
+            this.$router.push({ name: "SubAdminOne" });
           })
           .catch((e) => {
             this.errorUser = e.message;

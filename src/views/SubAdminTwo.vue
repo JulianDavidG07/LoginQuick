@@ -20,7 +20,6 @@
         :totalMedallas="dataArraySumGold | filterDecimalPointGold"
         nombreMedal="Oro"
       />
-      <ModalCard v-if="oroModal === true" />
 
       <!-- medalla plata -->
       <CardMedalla
@@ -78,9 +77,6 @@ export default {
   methods: {
     ...mapMutations(["pushData"]),
     ...mapActions(["getData"]),
-    ButtonState() {
-      alert("hola");
-    },
   },
 
   // Este filtro le añade un punto decimal al total de las medallas

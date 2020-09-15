@@ -3,11 +3,8 @@ import App from './App.vue'
 import router from './router'
 import firebase from 'firebase';
 import store from './store'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 import './assets/tailwind.css'
 
-Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 // Your web app's Firebase configuration

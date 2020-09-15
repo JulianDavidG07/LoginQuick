@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between">
+  <div class="flex justify-between mb-6">
     <img class="ml-3 mt-4 self-center" src="../assets/super.png" width="50px" />
     <div class="self-center">
       <SignOut />

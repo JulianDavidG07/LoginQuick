@@ -6,25 +6,22 @@
         <span class="inline-block">{{totalMedallas}}</span>
       </div>
       <strong class="inline-block">Medals</strong>
-      <!-- <ButtonModal /> -->
     </div>
-    <img
-      :class="`border-4 border-${color_card}-400`"
-      :src="require(`../assets/${image_src}.png`)"
-      width="200px"
-      height="200px"
-    />
+    <a href="#">
+      <img
+        :class="`border-4 border-${color_card}-400`"
+        :src="require(`../assets/${image_src}.png`)"
+        width="200px"
+        height="200px"
+      />
+    </a>
   </div>
 </template>
 
 <script>
-// import ButtonModal from "../components/ButtonModal";
 export default {
   name: "CardMedalla",
   props: ["image_src", "totalMedallas", "color_card", "nombreMedal"],
-  // components: {
-  //   ButtonModal,
-  // },
 };
 </script>
 

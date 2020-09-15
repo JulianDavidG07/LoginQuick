@@ -1,15 +1,9 @@
 <template>
-  <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/login">login</router-link>
-    </div>-->
-    <router-view />
+  <div>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 
-<style>
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
