@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex justify-between">
-      <img class="ml-3 mt-4" src="../assets/super.png" width="100px" />
-      <div class="self-center m-5">
+      <img class="ml-3 mt-4 self-end" src="../assets/super.png" width="50px" />
+      <div class="self-center">
         <SignOut />
       </div>
     </div>
@@ -12,22 +12,18 @@
       <router-link class="px-2 pb-2 hover:bg-white hover:text-black" to="/subadmin2">Categorias</router-link>
     </div>
 
-    <div class="flex flex-col text-white">
+    <div class="flex flex-col text-white mx-2">
       <p
         class="m-auto"
       >En este apartado se da a conocer la suma total correspondiente a la respectiva categoría (Oro, Plata, Bronce).</p>
-      <strong class="m-auto">Para mas información puedes dar click sobre la medalla.</strong>
     </div>
-    <!-- <ul>
-      <li v-for="(x, key) in dataArray" :key="key">{{ x.gold }}</li>
-    </ul>-->
 
     <div class="flex flex-wrap lg:justify-around mt-5 text-white px-6">
       <!-- medalla oro -->
       <CardMedalla
         image_src="oro"
         color_card="yellow"
-        :totalMedallas="dataArraySumGold"
+        :totalMedallas="dataArraySumGold | filterDecimalPointGold"
         nombreMedal="Oro"
       />
       <ModalCard v-if="oroModal === true" />
@@ -36,7 +32,7 @@
       <CardMedalla
         image_src="plata"
         color_card="gray"
-        :totalMedallas="dataArraySumSilver"
+        :totalMedallas="dataArraySumSilver | filterDecimalPointSilver"
         nombreMedal="Plata"
       />
 
@@ -44,7 +40,7 @@
       <CardMedalla
         image_src="bronce"
         color_card="orange"
-        :totalMedallas="dataArraySumBronze"
+        :totalMedallas="dataArraySumBronze | filterDecimalPointBronze"
         nombreMedal="Bronce"
       />
     </div>
@@ -55,7 +51,6 @@
 import { mapState, mapMutations, mapActions } from "vuex";
 import SignOut from "../components/SignOut";
 import CardMedalla from "../components/CardMedalla";
-import ModalCard from "../components/ModalCard";
 
 export default {
   name: 'SubAdmin"',
@@ -64,14 +59,6 @@ export default {
     SignOut,
     CardMedalla,
     ModalCard,
-  },
-
-  data() {
-    return {
-      oroModal: false,
-      plataModal: false,
-      bronceModal: false,
-    };
   },
 
   computed: {
@@ -98,6 +85,45 @@ export default {
     ...mapActions(["getData"]),
     ButtonState() {
       alert("hola");
+    },
+  },
+
+  // Este filtro le añade un punto decimal al total de las medallas
+  filters: {
+    filterDecimalPointGold: (dataArraySumGold) => {
+      if (!dataArraySumGold) {
+        dataArraySumGold = 0;
+      }
+
+      dataArraySumGold = dataArraySumGold
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        .split(".")[0];
+      return dataArraySumGold;
+    },
+
+    filterDecimalPointSilver: (dataArraySumSilver) => {
+      if (!dataArraySumSilver) {
+        dataArraySumSilver = 0;
+      }
+
+      dataArraySumSilver = dataArraySumSilver
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        .split(".")[0];
+      return dataArraySumSilver;
+    },
+
+    filterDecimalPointBronze: (dataArraySumBronze) => {
+      if (!dataArraySumBronze) {
+        dataArraySumBronze = 0;
+      }
+
+      dataArraySumBronze = dataArraySumBronze
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        .split(".")[0];
+      return dataArraySumBronze;
     },
   },
 

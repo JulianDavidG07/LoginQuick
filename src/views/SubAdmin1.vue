@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex justify-between">
-      <img class="ml-3 mt-4" src="../assets/super.png" width="100px" />
-      <div class="self-center m-5">
+      <img class="ml-3 mt-4 self-center" src="../assets/super.png" width="50px" />
+      <div class="self-center">
         <SignOut />
       </div>
     </div>
@@ -11,25 +11,25 @@
       <router-link class="px-2 pb-2 hover:bg-white hover:text-black" to="/subadmin2">Categorias</router-link>
     </div>
 
-    <div class="overflow-x-auto mx-2">
+    <div class="overflow-x-auto mx-2 mt-4 md:flex md:justify-center">
       <table class="table-auto text-white">
         <thead>
           <tr>
-            <th class="px-4 py-2">Atleta</th>
-            <th class="px-4 py-2">Edad</th>
-            <th class="px-4 py-2">País</th>
-            <th class="px-4 py-2">Año</th>
-            <th class="px-4 py-2">Fecha</th>
-            <th class="px-4 py-2">Deporte</th>
-            <th class="px-4 py-2">Oro</th>
-            <th class="px-4 py-2">Plata</th>
-            <th class="px-4 py-2">Bronce</th>
-            <th class="px-4 py-2">Total</th>
+            <th class="px-4 py-2 border border-white bg-yellow-300 text-gray-900">Atleta</th>
+            <th class="px-4 py-2 border border-white bg-yellow-400 text-gray-900">Edad</th>
+            <th class="px-4 py-2 border border-white bg-yellow-300 text-gray-900">País</th>
+            <th class="px-4 py-2 border border-white bg-yellow-400 text-gray-900">Año</th>
+            <th class="px-4 py-2 border border-white bg-yellow-300 text-gray-900">Fecha</th>
+            <th class="px-4 py-2 border border-white bg-yellow-400 text-gray-900">Deporte</th>
+            <th class="px-4 py-2 border border-white bg-yellow-300 text-gray-900">Oro</th>
+            <th class="px-4 py-2 border border-white bg-yellow-400 text-gray-900">Plata</th>
+            <th class="px-4 py-2 border border-white bg-yellow-300 text-gray-900">Bronce</th>
+            <th class="px-4 py-2 border border-white bg-yellow-300 text-gray-900">Total</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(x, key) of dataArray" :key="key">
-            <td class="border px-4 py-2">{{ x.athlete}}</td>
+            <td class="border px-4 py-2">{{ x.athlete }}</td>
             <td class="border px-4 py-2">{{ x.age }}</td>
             <td class="border px-4 py-2">{{ x.country }}</td>
             <td class="border px-4 py-2">{{ x.year }}</td>
@@ -50,9 +50,6 @@
           </tr>
         </tbody>
       </table>
-
-      <!-- Mensaje de error por si falla el GET -->
-      <div v-if="error !== ''" class="bg-yellow-500 text-black p-5">Cargando....</div>
     </div>
   </div>
 </template>
