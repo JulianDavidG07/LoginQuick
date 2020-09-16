@@ -6,9 +6,9 @@
     <!-- router navigation between pages -->
     <RouterAdmin />
 
-    <div class="flex flex-col text-white mx-2">
+    <div class="flex flex-col text-white mx-2 mb-2">
       <p
-        class="m-auto"
+        class="m-auto mb-4"
       >En este apartado se da a conocer la suma total correspondiente a la respectiva categoría (Oro, Plata, Bronce).</p>
       <span
         class="text-center font-bold bg-white rounded-lg text-black"
@@ -47,7 +47,7 @@
       <!-- card modal SILVER when clicking on the image -->
       <div
         v-if="showModalSilver"
-        class="z-30 z-30 fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center"
+        class="z-30 fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center"
       >
         <ModalCard
           :close_modal="changeStateModalSilver"

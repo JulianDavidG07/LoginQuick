@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-yellow-400 hover:bg-yellow-200 p-3 border-2 border-black"
+    class="bg-yellow-400 hover:bg-yellow-200 p-1 border-2 border-black"
     @click="closeSesion"
   >Cerrar Sesión</button>
 </template>
