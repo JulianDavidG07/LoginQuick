@@ -25,11 +25,14 @@
         nombreMedal="Oro"
       />
       <!-- card modal GOLD when clicking on the image -->
-      <div v-if="showModalGold">
+      <div
+        v-if="showModalGold"
+        class="z-30 fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center"
+      >
         <ModalCard
           :close_modal="changeStateModalGold"
           color_modal="yellow"
-          text_content="Yo soy Oro"
+          text_content="La medalla de oro se otorga al competidor o competidora que queda en primera posición de la competición en su respectiva disciplina"
         />
       </div>
 
@@ -42,11 +45,14 @@
         nombreMedal="Plata"
       />
       <!-- card modal SILVER when clicking on the image -->
-      <div v-if="showModalSilver">
+      <div
+        v-if="showModalSilver"
+        class="z-30 z-30 fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center"
+      >
         <ModalCard
           :close_modal="changeStateModalSilver"
           color_modal="gray"
-          text_content="Yo soy plata"
+          text_content="La medalla de plata se otorga al competidor o competidora que queda en segunda posición de la competición en su respectiva disciplina"
         />
       </div>
 
@@ -59,11 +65,14 @@
         nombreMedal="Bronce"
       />
       <!-- card modal BRONZE when clicking on the image -->
-      <div v-if="showModalBronze">
+      <div
+        v-if="showModalBronze"
+        class="z-30 fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center"
+      >
         <ModalCard
           :close_modal="changeStateModalBronze"
           color_modal="orange"
-          text_content="Yo soy bronce"
+          text_content="La medalla de bronce se otorga al competidor o competidora que queda en tercera posición de la competición en su respectiva disciplina."
         />
       </div>
     </div>
