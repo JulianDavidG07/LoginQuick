@@ -1,41 +1,71 @@
 <template>
-  <div>
+  <div class="relative">
     <!-- head view page -->
     <HeadView />
 
-    <!-- rouer navigation between pages -->
+    <!-- router navigation between pages -->
     <RouterAdmin />
 
     <div class="flex flex-col text-white mx-2">
       <p
         class="m-auto"
       >En este apartado se da a conocer la suma total correspondiente a la respectiva categoría (Oro, Plata, Bronce).</p>
+      <span
+        class="text-center font-bold bg-white rounded-lg text-black"
+      >Click en la imagen para mas información</span>
     </div>
 
     <div class="flex flex-wrap lg:justify-around mt-5 text-white px-6">
       <!-- medalla oro -->
       <CardMedalla
+        :change_state_modal="changeStateModalGold"
         image_src="oro"
         color_card="yellow"
         :totalMedallas="dataArraySumGold | filterDecimalPointGold"
         nombreMedal="Oro"
       />
+      <!-- card modal GOLD when clicking on the image -->
+      <div v-if="showModalGold">
+        <ModalCard
+          :close_modal="changeStateModalGold"
+          color_modal="yellow"
+          text_content="Yo soy Oro"
+        />
+      </div>
 
       <!-- medalla plata -->
       <CardMedalla
+        :change_state_modal="changeStateModalSilver"
         image_src="plata"
         color_card="gray"
         :totalMedallas="dataArraySumSilver | filterDecimalPointSilver"
         nombreMedal="Plata"
       />
+      <!-- card modal SILVER when clicking on the image -->
+      <div v-if="showModalSilver">
+        <ModalCard
+          :close_modal="changeStateModalSilver"
+          color_modal="gray"
+          text_content="Yo soy plata"
+        />
+      </div>
 
       <!-- medalla bronce -->
       <CardMedalla
+        :change_state_modal="changeStateModalBronze"
         image_src="bronce"
         color_card="orange"
         :totalMedallas="dataArraySumBronze | filterDecimalPointBronze"
         nombreMedal="Bronce"
       />
+      <!-- card modal BRONZE when clicking on the image -->
+      <div v-if="showModalBronze">
+        <ModalCard
+          :close_modal="changeStateModalBronze"
+          color_modal="orange"
+          text_content="Yo soy bronce"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +75,7 @@ import { mapState, mapMutations, mapActions } from "vuex";
 import HeadView from "../components/HeadView";
 import RouterAdmin from "../components/RouterAdmin";
 import CardMedalla from "../components/CardMedalla";
+import ModalCard from "../components/ModalCard";
 
 export default {
   name: 'SubAdmin"',
@@ -53,10 +84,16 @@ export default {
     CardMedalla,
     HeadView,
     RouterAdmin,
+    ModalCard,
   },
 
   computed: {
-    ...mapState(["dataArray"]),
+    ...mapState([
+      "dataArray",
+      "showModalGold",
+      "showModalSilver",
+      "showModalBronze",
+    ]),
     dataArraySumGold() {
       let totalMedallasArray = this.dataArray.map((x) => x.gold);
       let reducer = (a, b) => a + b;
@@ -75,7 +112,12 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["pushData"]),
+    ...mapMutations([
+      "pushData",
+      "changeStateModalGold",
+      "changeStateModalSilver",
+      "changeStateModalBronze",
+    ]),
     ...mapActions(["getData"]),
   },
 

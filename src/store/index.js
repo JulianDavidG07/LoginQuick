@@ -6,12 +6,24 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     dataArray: [],
+    showModalGold: false,
+    showModalSilver: false,
+    showModalBronze: false
   },
 
   mutations: {
     pushData(state, dataActions) {
       state.dataArray = dataActions;
     },
+    changeStateModalGold(state) {
+      state.showModalGold = !state.showModalGold
+    },
+    changeStateModalSilver(state) {
+      state.showModalSilver = !state.showModalSilver
+    },
+    changeStateModalBronze(state) {
+      state.showModalBronze = !state.showModalBronze
+    }
   },
 
   actions: {

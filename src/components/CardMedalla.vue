@@ -7,21 +7,27 @@
       </div>
       <strong class="inline-block">Medals</strong>
     </div>
-    <a href="#">
+    <div @click="change_state_modal">
       <img
-        :class="`border-4 border-${color_card}-400`"
+        :class="`border-4 border-${color_card}-400 cursor-pointer`"
         :src="require(`../assets/${image_src}.png`)"
         width="200px"
         height="200px"
       />
-    </a>
+    </div>
   </div>
-</template>
+</template> 
 
 <script>
 export default {
   name: "CardMedalla",
-  props: ["image_src", "totalMedallas", "color_card", "nombreMedal"],
+  props: [
+    "image_src",
+    "totalMedallas",
+    "color_card",
+    "nombreMedal",
+    "change_state_modal",
+  ],
 };
 </script>
 

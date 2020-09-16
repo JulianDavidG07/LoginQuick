@@ -6,7 +6,7 @@
     <!-- rouer navigation between pages -->
     <RouterAdmin />
 
-    <div class="overflow-x-auto mx-2 mt-4 md:flex md:justify-center">
+    <div class="overflow-x-auto mx-2 mt-4 md:flex md:justify-center mb-6">
       <table class="table-auto text-white">
         <thead>
           <tr>
